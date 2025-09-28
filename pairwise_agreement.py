@@ -1,10 +1,15 @@
+import combinations
+import pandas as pd
+#
+
+data = pd.read_csv('ratings_data.csv')
 def percentage_agreement(scores):
     """
     Calculate the percentage agreement among evaluators for a list of scores.
     Agreement is when two evaluators give the same score.
     """
     if len(scores) < 2:
-        return 1.0  # trivially agree
+        return 1.0  
 
     total_pairs = 0
     agreement_pairs = 0
@@ -26,7 +31,7 @@ means = []
 raws = []
 
 for i in criteria:
-    var1 = subset_20[['ans_id', i]]
+    var1 = data[['answer_id', i]]
     var1.rename(columns={i:'score'}, inplace=True)
     var1['score'] = var1['score'].astype(int)
     g = var1.groupby('ans_id')['score'].apply(list)
