@@ -108,7 +108,7 @@ def final_pairwise(df):
 
 def main():
     parser = argparse.ArgumentParser(description="Run ART ANOVA + Pairwise comparison.")
-    parser.add_argument("--input", required=True, help="Path to input CSV file containing model and metric columns.")
+    parser.add_argument("--input", required=True, help="Path to input CSV file.")
     parser.add_argument("--output", help="Optional path to save the p-value matrix as CSV.")
     args = parser.parse_args()
 
@@ -130,3 +130,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
